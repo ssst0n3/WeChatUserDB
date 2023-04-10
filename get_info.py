@@ -95,7 +95,8 @@ def getuserinfo(p) -> (int, str):
 
     # Get_Tel
     int_Tel_len = p.read_int(base_address - 0x47c)
-    Tel = p.read_bytes(base_address - 0x48c, int_Tel_len)
+    # Tel = p.read_bytes(base_address - 0x48c, int_Tel_len)
+    Tel = p.read_bytes(base_address - 0x484, 11)
 
     # Get_SqliteKey
     int_SqliteKey_len = p.read_int(base_address - 0x8c)
