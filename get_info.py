@@ -83,7 +83,10 @@ def getuserinfo(p) -> (int, str):
     # Get_Wxid
     int_wxid_len = p.read_int(base_address - 0x44)
     wxid_addr = p.read_int(base_address - 0x54)
-    wxid = p.read_bytes(wxid_addr, int_wxid_len)
+    try:
+        wxid = p.read_bytes(wxid_addr, int_wxid_len)
+    except Exception:
+        wxid = b''
 
     # Get_MobilePhoneModels
     int_mobileModel_len = p.read_int(base_address - 0xC)
